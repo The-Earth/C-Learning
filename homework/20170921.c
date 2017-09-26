@@ -8,7 +8,7 @@ int function1()
 	printf("a = ?\n");
 	scanf("%d",&a);
 	printf("b = ?\n");
-	scanf("%d,&b");
+	scanf("%d",&b);
 	
 	res = sqrt((a + b + abs(a - b)) / 2);
 	

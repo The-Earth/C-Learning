@@ -1,6 +1,7 @@
 #include<stdio.h>
 #include<math.h>
 
+//2
 int function1()
 {
 	int a, b;
@@ -16,7 +17,7 @@ int function1()
 	
 	return 0;
 }
-
+\\3
 int function2()
 {
 	double num, squ, pw;
@@ -29,7 +30,7 @@ int function2()
 	
 	return 0;
 }
-
+\\4
 int function3()
 {
 	double l[4];

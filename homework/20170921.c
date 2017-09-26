@@ -24,8 +24,28 @@ int function2()
 	printf("Input a real number:");
 	scanf("%f",&num);
 	squ = sqrt(num);
-	pw = pow(num,2);
-	printf("Square root of the input is %.3f\nSquare of the input is %.3f",squ,pw);
+	pw = pow(num, 2.0);
+	printf("Square root of the input is %.3f\nSquare of the input is %.3f\n\n",squ,pw);
+	
+	return 0;
+}
+
+int function3()
+{
+	double l[4];
+	int i;
+	
+	for(i = 0;i < 4;i++)
+	{
+		printf("Calculating average:");
+		scanf("%f",&l[i]);
+	}
+	double sum=0;
+	
+	for(i = 0;i < 4;i++)
+		sum = sum + l[i];
+	
+	printf("Average value is %.2f",sum / 4.0);
 	
 	return 0;
 }
@@ -34,6 +54,6 @@ int main()
 {
 	function1();
 	function2();
-	
+	function3();
 	return 0;
 }

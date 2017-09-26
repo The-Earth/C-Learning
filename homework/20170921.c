@@ -23,8 +23,11 @@ int function2()
 	
 	printf("Input a real number:");
 	scanf("%f",&num);
+	printf("%f",num) ;
 	squ = sqrt(num);
+	printf("%f",squ);
 	pw = pow(num, 2.0);
+	printf("%f",pw)
 	printf("Square root of the input is %.3f\nSquare of the input is %.3f\n\n",squ,pw);
 	
 	return 0;
@@ -52,8 +55,8 @@ int function3()
 
 int main()
 {
-	function1();
+	//function1();
 	function2();
-	function3();
+	//function3();
 	return 0;
 }

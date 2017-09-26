@@ -52,8 +52,8 @@ int function3()
 
 int main()
 {
-	//function1();
+	function1();
 	function2();
-	//function3();
+	function3();
 	return 0;
 }

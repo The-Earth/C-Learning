@@ -20,4 +20,6 @@ int function1()
 int main()
 {
 	function1();
+	
+	return 0;
 }

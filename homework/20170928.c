@@ -59,6 +59,16 @@ int change()
 	return 0;
 }
 
+int d2hob()
+{
+	int num;
+	printf("Give I a decimal int number and I will tell you its hex, oct and bin form:");
+	scanf("%d",&num);
+	printf("\nHex: %x\nOct: %o\n\n",num,num,num);
+	
+	return 0;
+}
+
 int main()
 {
 	printf("Task 1:\n");
@@ -67,6 +77,8 @@ int main()
 	ASCII();
 	printf("Task 3:\n");
 	change();
+	printf("Task 4:\n");
+	d2hob();
 	
 	return 0;
 }

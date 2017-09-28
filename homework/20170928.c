@@ -4,7 +4,7 @@
 
 int triangle()
 {
-	double a, b, c, area, s; 
+	double a = 0, b = 0, c = 0, area, s; 
 	printf("Calculating the area of a given triangle.\nInput length of the three sides (seperated by space):");
 	scanf("%lf %lf %lf", &a, &b, &c);
 	if (a + b > c && a + c > b && b + c > a)

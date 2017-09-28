@@ -33,12 +33,37 @@ int ASCII()
 	return 0;
 }
 
+int change()
+{
+	getchar();
+	
+	char or, nw;
+	printf("Give me an letter and I will change it in to another form:");
+	scanf("%c",&or);
+	if (or < 'Z' && or > 'A')
+	{
+		nw = or + 32;
+		printf("The result is %c\n\n",nw);
+	}
+	else
+	{
+		if (or > 'a' && or < 'z')
+		{
+			nw = or - 32;
+			printf("The result is %c\n\n",nw);
+		}
+		else
+			puts("I can not help you!\n\n");
+	}
+}
+
 int main()
 {
 	printf("task 1:\n");
 	triangle();
 	printf("task 2:\n");
 	ASCII();
+	printf("task 3:\n");
 	
 	return 0;
 }

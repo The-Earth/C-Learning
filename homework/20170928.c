@@ -27,6 +27,8 @@ int ASCII()
 	printf("Give me an English character and I will tell you its ASCII:");
 	scanf("%c",CH);
 	printf("\nIts ASCII number is %d",CH);
+	
+	return 0;
 }
 
 int main()

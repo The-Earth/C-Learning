@@ -55,6 +55,8 @@ int change()
 		else
 			puts("I can not help you!\n\n");
 	}
+	
+	return 0;
 }
 
 int main()
@@ -64,6 +66,7 @@ int main()
 	printf("task 2:\n");
 	ASCII();
 	printf("task 3:\n");
+	change();
 	
 	return 0;
 }

@@ -28,7 +28,7 @@ int ASCII()
 	char CH;
 	printf("Give me an English character and I will tell you its ASCII:");
 	scanf("%c",&CH);
-	printf("\nIts ASCII number is %d",CH);
+	printf("\nIts ASCII number is %d\n\n",CH);
 	
 	return 0;
 }
@@ -50,7 +50,7 @@ int change()
 		if (or > 'a' && or < 'z')
 		{
 			nw = or - 32;
-			printf("The result is %c\n\n",nw);
+			printf("The result is \"%c\"\n\n",nw);
 		}
 		else
 			puts("I can not help you!\n\n");
@@ -61,11 +61,11 @@ int change()
 
 int main()
 {
-	printf("task 1:\n");
+	printf("Task 1:\n");
 	triangle();
-	printf("task 2:\n");
+	printf("Task 2:\n");
 	ASCII();
-	printf("task 3:\n");
+	printf("Task 3:\n");
 	change();
 	
 	return 0;

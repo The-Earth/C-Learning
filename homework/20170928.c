@@ -11,7 +11,7 @@ int triangle()
 	{
 		s = (a + b + c) / 2;
 		area = sqrt(s * (s - a) * (s - b) * (s - c));
-		printf("\nThe area of the given triangle is %.2f",area);
+		printf("\nThe area of the given triangle is %.2f\n",area);
 	}
 	else
 	{
@@ -21,10 +21,20 @@ int triangle()
 	return 0;
 }
 
+int ASCII()
+{
+	char CH;
+	printf("Give me an English character and I will tell you its ASCII:");
+	scanf("%c",CH);
+	printf("\nIts ASCII number is %d",CH);
+}
+
 int main()
 {
-	printf("task1:\n");
+	printf("task 1:\n");
 	triangle();
+	printf("task 2:\n");
+	ASCII();
 	
 	return 0;
 }

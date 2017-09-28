@@ -11,11 +11,11 @@ int triangle()
 	{
 		s = (a + b + c) / 2;
 		area = sqrt(s * (s - a) * (s - b) * (s - c));
-		printf("\nThe area of the given triangle is %.2f\n",area);
+		printf("\nThe area of the given triangle is %.2f\n\n",area);
 	}
 	else
 	{
-		printf("It is not a triangle.\n");
+		printf("It is not a triangle.\n\n");
 	}
 	
 	return 0;

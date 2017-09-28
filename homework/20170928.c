@@ -23,9 +23,11 @@ int triangle()
 
 int ASCII()
 {
+	getchar();
+	 
 	char CH;
 	printf("Give me an English character and I will tell you its ASCII:");
-	scanf("%c",CH);
+	scanf("%c",&CH);
 	printf("\nIts ASCII number is %d",CH);
 	
 	return 0;

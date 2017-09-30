@@ -110,7 +110,20 @@ int circle()
 	printf("Tell me the radius of the circle:");
 	scanf("%lf",&R);
 	
-	printf("Its area is: %.2f\nIts circumference is: %.2f",pi*pow(R,2), 2*pi*R);
+	printf("Its area is: %.2f\nIts circumference is: %.2f\n\n",pi*pow(R,2), 2*pi*R);
+	
+	return 0;
+}
+
+int f2c()
+{
+	int f;
+	printf("Tell me a Fahreheit degree and I'll tell you its Celcius form:");
+	scanf("%d",&f);
+	
+	printf("Its Celcius form is: %.2f\n\n",(f - 32) * 5 / 9.0);
+	
+	return 0;
 }
 
 int main()
@@ -126,9 +139,11 @@ int main()
 	printf("Task 5:\n");
 	tenK();
 	printf("Task 6:\n");
-	error();*/
+	error();
 	printf("Task 7:\n");
-	circle();
-		
+	circle();*/
+	printf("Task 8:\n");
+	f2c();
+	
 	return 0;
 }

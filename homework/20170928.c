@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
-
+ 
 int triangle()
 {
 	double a = 0, b = 0, c = 0, area, s; 
@@ -69,6 +69,24 @@ int d2hob()
 	return 0;
 }
 
+int tenK()
+{
+	int num;
+	printf("Input an integer between 10000 and 99999 and I will tell you something......\n:");
+	scanf("%d",&num);
+	
+	int tk, k, h, t, o;
+	tk = num / 10000;
+	k = (num % 10000) / 1000;
+	h = (num % 1000) / 100;
+	t = (num % 100) / 10;
+	o = num % 10;
+	
+	printf("%d(%d+%d+%d+%d+%d)",(tk + k + h + t + o), tk, k, h, t, o);
+	
+	return 0;
+}
+
 int main()
 {
 	printf("Task 1:\n");
@@ -79,6 +97,8 @@ int main()
 	change();
 	printf("Task 4:\n");
 	d2hob();
-	
+	printf("Task 5:\n");
+	tenK();
+		
 	return 0;
 }

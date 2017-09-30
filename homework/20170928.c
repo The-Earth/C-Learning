@@ -126,6 +126,14 @@ int f2c()
 	return 0;
 }
 
+int testing()
+{
+	printf("Testing strings......\n");
+	printf("abc\a def\b ghi\n jkl\r mno\t pqr\v stu\' vwx\" yza\\ bcd\?");
+	
+	return 0;
+}
+
 int main()
 {
 	/*printf("Task 1:\n");
@@ -141,9 +149,11 @@ int main()
 	printf("Task 6:\n");
 	error();
 	printf("Task 7:\n");
-	circle();*/
+	circle();
 	printf("Task 8:\n");
-	f2c();
+	f2c();*/
+	printf("Task 9:\n");
+	testing();
 	
 	return 0;
 }

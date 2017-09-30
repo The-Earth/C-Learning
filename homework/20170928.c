@@ -61,10 +61,24 @@ int change()
 
 int d2hob()
 {
-	int num;
-	printf("Give I a decimal int number and I will tell you its hex, oct and bin form:");
+	int num, len,i;
+	printf("Give I a decimal integer and I will tell you its hex, oct and bin form:");
 	scanf("%d",&num);
-	printf("\nHex: %x\nOct: %o\n\n",num,num,num);
+	len = log(num) / log(2) + 1;
+	
+	int bin[len],temp = num;
+	for(i=0;i<len;i++)
+	{
+		bin[i] = temp % 2;
+		temp = temp / 2;
+	}
+	
+	printf("\nHex: %X\nOct: %o\nBin:",num,num);
+	
+	for(i = len-1;i > -1;i--)
+	{
+		printf("%d",bin[i]);
+	}
 	
 	return 0;
 }
@@ -141,19 +155,19 @@ int main()
 	printf("Task 2:\n");
 	ASCII();
 	printf("Task 3:\n");
-	change();
+	change();*/
 	printf("Task 4:\n");
 	d2hob();
-	printf("Task 5:\n");
+	/*printf("\n\nTask 5:\n");
 	tenK();
 	printf("Task 6:\n");
 	error();
 	printf("Task 7:\n");
 	circle();
 	printf("Task 8:\n");
-	f2c();*/
+	f2c();
 	printf("Task 9:\n");
-	testing();
+	testing();*/
 	
 	return 0;
 }

@@ -150,15 +150,15 @@ int testing()
 
 int main()
 {
-	/*printf("Task 1:\n");
+	printf("Task 1:\n");
 	triangle();
 	printf("Task 2:\n");
 	ASCII();
 	printf("Task 3:\n");
-	change();*/
+	change();
 	printf("Task 4:\n");
 	d2hob();
-	/*printf("\n\nTask 5:\n");
+	printf("\n\nTask 5:\n");
 	tenK();
 	printf("Task 6:\n");
 	error();
@@ -167,7 +167,7 @@ int main()
 	printf("Task 8:\n");
 	f2c();
 	printf("Task 9:\n");
-	testing();*/
+	testing();
 	
 	return 0;
 }

@@ -92,6 +92,7 @@ int error()
 	int x=1,y=2,z=3,u=4,c=5,r=6,a=7,b=8,e=9,R=10;
 	const double Pi=3.14159;
 	
+	printf("Errors corrected!\n");
 	printf("|(x+y)(z+u)+2c|=%f\nPi r^2/(a+b)=%f\n(lnx+cosy)/3=%f\n4x^3+2e^y=%f\n4Pi R^2=%f\n\n",
 	fabs((x+y)*(z+u)+2*c),
 	Pi*pow(r,2)/(a+b),
@@ -100,6 +101,16 @@ int error()
 	4*Pi*pow(R,2));
 	
 	return 0;
+}
+
+int circle()
+{
+	double R;
+	const double pi=3.14159;
+	printf("Tell me the radius of the circle:");
+	scanf("%lf",&R);
+	
+	printf("Its area is: %.2f\nIts circumference is: %.2f",pi*pow(R,2), 2*pi*R);
 }
 
 int main()
@@ -113,10 +124,11 @@ int main()
 	printf("Task 4:\n");
 	d2hob();
 	printf("Task 5:\n");
-	tenK();*/
+	tenK();
 	printf("Task 6:\n");
-	error();
-	
+	error();*/
+	printf("Task 7:\n");
+	circle();
 		
 	return 0;
 }

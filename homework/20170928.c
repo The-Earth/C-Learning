@@ -120,7 +120,7 @@ int error()
 int circle()
 {
 	double R;
-	const double pi=3.14159;
+	const double pi=3.1415926535897932384626433832750;
 	printf("Tell me the radius of the circle:");
 	scanf("%lf",&R);
 	

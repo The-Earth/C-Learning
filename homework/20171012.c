@@ -68,6 +68,22 @@ void days()
 		printf("%d-%d-%d is the %d day of %d.\n\n", year, month, day, preday+day, year);
 }
 
+void type()
+{
+	printf("Give me A char and I will tell you its type:");
+	char x;
+	scanf("%c",&x);
+	
+	if(x == 32)
+		printf("It's a space.\n\n");
+	else if(x >= 48 && x <= 57)
+		printf("It's a number.\n\n");
+	else if((x >= 65 && x <= 90) || (x >= 97 && x < 122))
+		printf("It's an English character.\n\n");
+	else
+		printf("It's an \"other character\".\n\n");
+}
+
 int main()
 {
 	printf("This is the homework for Oct. 12 lecture.\n\n");
@@ -75,6 +91,8 @@ int main()
 	lower();
 	printf("Task 2:\n\n");
 	days();
+	printf("Task 3:\n\n");
+	type();
 	
 	return 0;
 }

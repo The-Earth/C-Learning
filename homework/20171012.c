@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <math.h>
 
 void lower()
 {
@@ -84,6 +85,29 @@ void type()
 		printf("It's an \"other character\".\n\n");
 }
 
+void BMI()
+{
+	double height, weight, B;
+	printf("Tell me your height and weight in meters and kilograms.\nHeight:");
+	scanf("%lf",&height);
+	printf("Weight:");
+	scanf("%lf",&weight);
+	
+	B = weight / pow(height,2);
+	if(B < 18.0)
+		printf("You are too slim!\n\n");
+	else if(B >= 18.0 && B < 25)
+		printf("You are fit.\n\n");
+	else if(B >= 25 && B < 27)
+		printf("You are overweighted!\n\n");
+	else if(B > 27 && B < 50)
+		printf("You are too fat! Go on a diet immediately!");
+	else if(B >= 50)
+		printf("You must have come from M78.");
+	else
+		printf("Why are you using this program? You can not be my professor!!");
+}
+
 int main()
 {
 	printf("This is the homework for Oct. 12 lecture.\n\n");
@@ -93,6 +117,8 @@ int main()
 	days();
 	printf("Task 3:\n\n");
 	type();
+	printf("Tasj 4:\n\n");
+	BMI();
 	
 	return 0;
 }

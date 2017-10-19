@@ -50,7 +50,7 @@ void fabonacci()
 	int a = 1, b = 1, c, n = 2;
 	c = a + b;
 	printf("%d\t%d\t", a, b);
-	do
+	while(c <= 10000)
 	{
 		printf("%d\t",c);
 		++ n;
@@ -62,7 +62,23 @@ void fabonacci()
 		a = b; b = c;
 		c = a + b;
 	}
-	while(c <= 10000);
+	printf("\n\n");
+}
+
+void sumofnum()
+{
+	int num, len, a, i, sum=0, temp;
+	printf("Give me an integer and I will tell you how long it is and the sum of its numbers.\n:");
+	scanf("%d",&num);
+	len = log(num) / log(10) + 1;
+	temp = num;
+	for(i = len - 1; i > -1; --i)
+	{
+		a = temp / pow(10, i);
+		sum += a;
+		temp -= a * pow(10, i);
+	}
+	printf("The length of the number is %d.\nThe sum of its numbers is %d", len, sum);
 }
 
 int main()
@@ -76,6 +92,8 @@ int main()
 	fracsum();
 	printf("P103 Task 10:\n\n");
 	fabonacci();
+	printf("P103 Task 14:\n\n");
+	sumofnum();
 	
 	return 0;
 }

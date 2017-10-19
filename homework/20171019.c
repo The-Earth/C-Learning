@@ -7,7 +7,7 @@ void A2Z()
 	char ser; int i;
 	for(ser=65; ser < 91; ++ser)
 	{
-		printf("%c\t",ser);
+		printf("%c ",ser);
 		if((int) ser % 8 == 0)
 		{
 			printf("\n");

@@ -32,6 +32,17 @@ void modd()
 			}
 		}
 	}
+	printf("\n\n");
+}
+
+void fracsum()
+{
+	int i; double sum = 0.0;
+	for(i = 1; i < 201; ++i)
+	{
+		sum += 1.0 / (double) i;
+	}
+	printf("The result is %.5f\n\n",sum);
 }
 
 int main()
@@ -41,6 +52,8 @@ int main()
 	A2Z();
 	printf("P103 Task 5:\n\n");
 	modd();
+	printf("P103 Task 7:\n\n");
+	fracsum();
 	
 	return 0;
 }

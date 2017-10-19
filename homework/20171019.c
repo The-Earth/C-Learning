@@ -18,7 +18,20 @@ void A2Z()
 
 void modd()
 {
-	
+	int i, n = 0;
+	for(i = 1; i < 1001; ++i)
+	{
+		if(i % 3 == 2 && i % 5 == 3 && i % 7 == 2)
+		{
+			printf("%d\t",i);
+			++ n;
+			if(n % 5 == 0)
+			{
+				printf("\n");
+				n = 0;
+			}
+		}
+	}
 }
 
 int main()

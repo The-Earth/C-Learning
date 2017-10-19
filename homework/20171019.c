@@ -45,6 +45,26 @@ void fracsum()
 	printf("The result is %.5f\n\n",sum);
 }
 
+void fabonacci()
+{
+	int a = 1, b = 1, c, n = 2;
+	c = a + b;
+	printf("%d\t%d\t", a, b);
+	do
+	{
+		printf("%d\t",c);
+		++ n;
+		if(n % 5 == 0)
+		{
+			printf("\n");
+			n = 0;
+		}
+		a = b; b = c;
+		c = a + b;
+	}
+	while(c <= 10000);
+}
+
 int main()
 {
 	printf("Homework for 2017/10/19 lecture.\n\n");
@@ -54,6 +74,8 @@ int main()
 	modd();
 	printf("P103 Task 7:\n\n");
 	fracsum();
+	printf("P103 Task 10:\n\n");
+	fabonacci();
 	
 	return 0;
 }

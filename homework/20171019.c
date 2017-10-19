@@ -78,7 +78,34 @@ void sumofnum()
 		sum += a;
 		temp -= a * pow(10, i);
 	}
-	printf("The length of the number is %d.\nThe sum of its numbers is %d", len, sum);
+	printf("The length of the number is %d.\nThe sum of its numbers is %d\n\n", len, sum);
+}
+
+void mul()
+{
+	int i, j;
+	for(i = 1; i < 10; ++i)
+	{	
+		for(j = i; j < 10; ++j)
+		{
+			printf("%d * %d = %d\t", i, j, i*j);
+		}
+		printf("\n");
+	}
+	printf("\n\n");
+}
+
+void ABCD()
+{
+	int i, j;
+	for(i = 1; i <= 4; ++i)
+	{
+		for(j = 1; j <= 4 - i; ++j)
+			printf(" ");
+		for(j = 0; j < 2 * i - 1; ++j)
+			printf("%c",i + 64);
+	printf("\n");
+	}
 }
 
 int main()
@@ -94,6 +121,10 @@ int main()
 	fabonacci();
 	printf("P103 Task 14:\n\n");
 	sumofnum();
+	printf("P103 Task 16:\n\n");
+	mul();
+	printf("P103 Task 17:\n\n");
+	ABCD();
 	
 	return 0;
 }

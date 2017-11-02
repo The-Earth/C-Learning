@@ -84,7 +84,15 @@ int main()
 	system("pause");
 	*/
 	
-	yanghui(6);
+	//Ñî»ÔÈı½Ç start
+	puts("--------Ñî»ÔÈı½Ç start--------\nHow many layers? ");
+	int n;
+	scanf("%d",&n); 
+	yanghui(n);
+	puts("\n--------Ñî»ÔÈı½Ç end--------\n");
+	//Ñî»ÔÈı½Ç end
+	
+	system("pause");
 	
 	return 0;
 }

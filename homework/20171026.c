@@ -17,7 +17,7 @@ int min(int c, int d)
 int prime(int x)
 {
 	int i;
-	for(i = 2 ; i < x / 2 ; ++i)
+	for(i = 2 ; i <= sqrt(x) ; ++i)
 	{
 		if(x % i == 0)
 			return 0;
@@ -103,7 +103,7 @@ int main()
 	system("pause");
 	
 	//Task 5 start
-	puts("\n--------Task 5 : Complete number start");
+	puts("\n--------Task 5 : Complete number start--------");
 	puts("All complete numbers under and 1000 are listed as following:");
 	for(n = 1 ; n <= 1000 ; ++n)
 	{

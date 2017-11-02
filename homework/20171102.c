@@ -33,10 +33,39 @@ double SIN(int n , double pi)
 	return (in / (double) n * pi / 2);
 }
 
+void yanghui(n)
+{
+	int arr[n][n] , i , j;
+	for(i = 0 ; i < n ; ++i)
+	{
+		for(j = 0 ; j < n ; ++j)
+			{
+				if(j == 0 || j == i)
+					arr[i][j] = 1;
+				else if(j > 0 && j < i)
+					arr[i][j] = arr[i-1][j-1] + arr[i-1][j];
+				else if(j > i)
+					arr[i][j] = 0;
+			}
+	}
+	
+	for(i = 0 ; i < n ; ++i)
+	{
+		for(j = 1 ; j <= n - i ; ++j)
+			printf(" ");
+		for(j = 0 ; j < n ; ++j)
+		{
+			if(arr[i][j] != 0)
+				printf("%d ",arr[i][j]);
+		}
+		printf("\n");
+	}
+}
+
 int main()
 {
 	srand((unsigned)time(NULL));
-	//Pi start
+	/*//Pi start
 	double pi;
 	puts("--------Calculating Pi......--------");
 	pi = PI(1000000000);
@@ -48,13 +77,14 @@ int main()
 	
 	//Sin() start
 	puts("--------Integrating Sin(x) from 0 to pi/2");
-	printf("%.10f",SIN(10000000,3.1415926));
+	printf("%.10f",SIN(10000000,pi));
 	puts("\n--------Integration ended.--------\n");
 	//Sin() end
 	
 	system("pause");
+	*/
 	
-	
+	yanghui(6);
 	
 	return 0;
 }

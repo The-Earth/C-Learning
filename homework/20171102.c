@@ -2,14 +2,14 @@
 #include <stdlib.h>
 #include <math.h>
 
-double randf(double min, double max)
+double randf(double min, double max)	//随机数生成器 
 {
 	double r;
 	r = rand();
 	return (r / RAND_MAX * (max - min) + min);
 }
 
-double PI(int n) //n越大，计算精度越高 
+double PI_core(int n) //单次计算pi
 {
 	int i, in = 0; double x , y;
 	for(i = 1 ; i <= n ; ++i)
@@ -21,7 +21,7 @@ double PI(int n) //n越大，计算精度越高
 	return (in / (double) n * 4);
 }
 
-double SIN(int n , double pi)
+double SIN_core(int n , double pi)	//单次sin积分运算 
 {
 	int i, in = 0; double x , y;
 	for(i = 1 ; i <= n ; ++i)
@@ -33,7 +33,29 @@ double SIN(int n , double pi)
 	return (in / (double) n * pi / 2);
 }
 
-void yanghui(n)
+double PI_main(double d, int n)	//圆周率运算主程序 
+{
+	double res = 0 , pi = 1 ;
+	while(fabs(res - pi) > d)
+	{
+		pi = PI_core(n);
+		res = 0.5 * (res + pi);
+	}
+	return res;
+}
+
+double SIN_main(double d, int n, double pi)	//sin积分主程序 
+{
+	double res = 0 , in = 1 ;
+	while(fabs(res - in) > d)
+	{
+		pi = SIN_core(n,pi);
+		res = 0.5 * (res + in);
+	}
+	return res;
+}
+
+void yanghui(n)			//杨辉三角形 
 {
 	int arr[n][n] , i , j;
 	for(i = 0 ; i < n ; ++i)
@@ -62,14 +84,22 @@ void yanghui(n)
 	}
 }
 
+int nar(int n)	//判断是否为水仙花数 
+{
+	if(pow(n / 100 , 3) + pow((n - n / 100 * 100) / 10 , 3) + pow(n % 10 , 3) == n)
+		return 1;
+	else
+		return 0;
+}
+
 int main()
 {
 	srand((unsigned)time(NULL));
-	/*//Pi start
+	//Pi start
 	double pi;
 	puts("--------Calculating Pi......--------");
-	pi = PI(1000000000);
-	printf("%.10f",pi);
+	pi = PI_main(0.00001 , pow(10,6));
+	printf("pi = %.10f",pi);
 	puts("\n--------Calculation ended.--------\n");
 	//Pi end
 	
@@ -77,12 +107,12 @@ int main()
 	
 	//Sin() start
 	puts("--------Integrating Sin(x) from 0 to pi/2");
-	printf("%.10f",SIN(10000000,pi));
+	printf("The result is %.10f",SIN_main(0.00000001, pow(10,6) , pi));
 	puts("\n--------Integration ended.--------\n");
 	//Sin() end
 	
 	system("pause");
-	*/
+	
 	
 	//杨辉三角 start
 	puts("--------杨辉三角 start--------\nHow many layers? ");
@@ -93,6 +123,17 @@ int main()
 	//杨辉三角 end
 	
 	system("pause");
+	
+	//水仙花数 start
+	puts("--------水仙花数 start--------\nAll the narcissistic numbers between 100 and 999 are listed as following:\n");
+	int i;
+	for(i = 100 ; i < 1000 ; ++i)
+	{
+		if(nar(i))
+			printf("%d\t", i);
+	}
+	puts("\n--------水仙花数 end--------");
+	
 	
 	return 0;
 }

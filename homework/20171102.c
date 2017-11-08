@@ -162,7 +162,7 @@ int main()
 	puts("输入两整数，返回它们的最大公约数和最小公倍数，以空格分隔 ： ");
 	scanf("%d %d", &a, &b);
 	printf("最大公约数：%d\n最小公倍数：%d", greatest_common(a,b), least_common(a,b));
-	puts("--------Greatest common Divider and Least common Multiple END--------");
+	puts("\n--------Greatest common Divider and Least common Multiple END--------");
 	//D % M end
 	
 	return 0;

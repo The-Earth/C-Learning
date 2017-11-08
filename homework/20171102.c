@@ -86,10 +86,29 @@ void yanghui(n)			//杨辉三角形
 
 int nar(int n)	//判断是否为水仙花数 
 {
-	if(pow(n / 100 , 3) + pow((n - n / 100 * 100) / 10 , 3) + pow(n % 10 , 3) == n)
-		return 1;
-	else
-		return 0;
+	return pow(n / 100 , 3) + pow((n - n / 100 * 100) / 10 , 3) + pow(n % 10 , 3) == n ? 1 : 0 ;
+}
+
+int greatest_common(int a, int b)	//求最大公约数 
+{
+	int i, min;
+	min = a > b ? b : a;
+	for(i = min ; i >= 1 ; --i)
+	{
+		if(a % i == 0 && b % i == 0)
+			return i;
+	}
+}
+
+int least_common(int a, int b)	//求最小公倍数 
+{
+	int i, max;
+	max = a < b ? b : a;
+	for(i = max ; i <= a * b ; ++i)
+	{
+		if(i % a == 0 && i % b == 0)
+			return i;
+	}
 }
 
 int main()
@@ -133,7 +152,18 @@ int main()
 			printf("%d\t", i);
 	}
 	puts("\n--------水仙花数 end--------");
+	//水仙花数 end
+	 
+	system("pause");
 	
+	//D % M start
+	int a, b;
+	puts("--------Greatest common Divider and Least common Multiple START--------");
+	puts("输入两整数，返回它们的最大公约数和最小公倍数，以空格分隔 ： ");
+	scanf("%d %d", &a, &b);
+	printf("最大公约数：%d\n最小公倍数：%d", greatest_common(a,b), least_common(a,b));
+	puts("--------Greatest common Divider and Least common Multiple END--------");
+	//D % M end
 	
 	return 0;
 }

@@ -41,6 +41,24 @@ void sum_ave()
 	printf("数组和 = %d\n平均值 = %f\n--------\n", sum, ave);
 }
 
+void revert()
+{
+	int a[5] = {3,4,2,1,6} , rev[5] , i;
+	puts("P159 3 数组为:");
+	for(i = 0 ; i < 5 ; ++i)
+		printf("%d , ", a[i]);
+	printf("\b\b \n");
+	system("pause");
+	
+	for(i = 0 ; i < 5 ; ++i)
+		rev[i] = a[4-i];
+	
+	printf("倒转后的数组为 ：");
+	for(i = 0 ; i < 5 ; ++i)
+		printf("%d , ", rev[i]);
+	printf("\b\b \n--------\n");
+}
+
 int main()
 {
 	//P140 2 start
@@ -72,5 +90,10 @@ int main()
 	//P159 2 end
 	
 	system("pause");
+	
+	//P159 3 start
+	revert();
+	//P159 3 end
+	
 	return 0;
 }

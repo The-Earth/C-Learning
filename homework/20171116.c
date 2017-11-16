@@ -9,10 +9,11 @@
 void findmin()
 {
 	int i , a[] = {3,4,2,5,1} , res[2];
-	puts("数组为：");
+	puts("P159 1 \n数组为：");
 	for(i = 0 ; i < 5 ; ++i)
 		printf("%d , ", a[i]);
-	printf("\b\b  ");
+	printf("\b\b \n");
+	system("pause");
 	
 	res[0] = a[0];
 	for(i = 0 ; i < 5 ; ++i)
@@ -21,12 +22,23 @@ void findmin()
 			res[0] = a[i];
 			res[1] = i;
 	}
-	printf("\n其中最小的数为 %d ,为数组中的第 %d 个，索引号为 %d\n--------", res[0] , res[1] + 1 , res[1]);
+	printf("\n其中最小的数为 %d ,为数组中的第 %d 个，索引号为 %d\n--------\n", res[0] , res[1] + 1 , res[1]);
 }
 
 void sum_ave()
 {
-	int a[20] = {5,3,6,87,98,6,4,2,3,4,8,9,4,6,8,4,3,65,7,4};
+	int a[20] = {5,3,6,87,98,6,4,2,3,4,8,9,4,6,8,4,3,65,7,4} , i, sum=0;
+	puts("P159 2 \n数组为:");
+	for(i = 0 ; i < 20 ; ++i)
+		printf("%d , ", a[i]);
+	printf("\b\b \n");
+	system("pause");
+	
+	double ave;
+	for(i = 0 ; i < 20 ; ++i)
+		sum += a[i];
+	ave = sum / 20.0;
+	printf("数组和 = %d\n平均值 = %f\n--------\n", sum, ave);
 }
 
 int main()
@@ -58,5 +70,7 @@ int main()
 	//P159 2 start
 	sum_ave();
 	//P159 2 end
+	
+	system("pause");
 	return 0;
 }

@@ -13,10 +13,16 @@ int main()
 	puts("Calculating volume of a sylinder.\nr & h = ?(Seperated by space) : ");
 	scanf("%lf %lf", &r, &h);
 	printf("The result is %f\n--------\n", vol(r,h));
-	
 	//P140 2 end
 	
 	system("pause");
+	
+	//P140 3 start
+	double a, b, c;
+	puts("--------\nI'll tell you the biggest number amount the given three : (Seperated by space)");
+	scanf("%lf %lf %lf", &a, &b, &c);
+	printf("The biggest one = %f", MAX(a , b , c));
+	//P140 3 end
 	
 	return 0;
 }

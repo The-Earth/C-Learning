@@ -27,11 +27,26 @@ void select_sort()
 		printf("%d\t", a[i]);
 }
 
+int str_len(const char b[])
+{
+	int len = 0;
+	while(b[len])
+		len += 1;
+	return len;
+}
+
 int main()
 {
+	/*
 	//—°‘Ò≈≈–Ú 
 	select_sort();
 	system("pause");
+	*/
+	//strlen()
+	char a[100];
+	puts("Input a string and I will tell you its length.");
+	scanf("%s" , a);
+	printf("Its length is %d." , str_len(a));
 	
 	return 0;
 }

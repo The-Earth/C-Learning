@@ -35,16 +35,43 @@ int str_len(const char b[])
 	return len;
 }
 
+//MODIFY NEEDED!!!!! 
 int str_cmp(const char s1[] , const char s2[])
 {
 	int i;
-	while(s1[i] && s2[i])
+	while(s1[i] || s2[i])
 	{
 		if(s1[i] == s2[i])
 			i++ ;
 		else
 			return s1[i] - s2[i];
 	}
+}
+
+void word_sort()
+{
+	puts("Sorting 10 words in a decending rank.");
+	char wdlst[10][33]; int i;
+	
+	for(i = 0 ; i < 10 ; ++i)
+	{
+		printf("Input word with index %d (NO MORE THAN 32 LETTERS !): ", i);
+		scanf("%s" , wdlst[i]);
+	}
+	
+	for(i = 0 ; i < 10 ; ++i)
+	{
+		int j , max_index; char tmp[33];
+		max_index = i;
+		for(j = i ; j < 10 ; ++j)
+			max_index = strcmp(wdlst[max_index] , wdlst[j]) < 0 ? j : max_index ;
+		
+		strcpy(tmp , wdlst[i]) ; strcpy(wdlst[i] , wdlst[max_index]) ; strcpy(wdlst[max_index] , tmp) ;
+	}
+	
+	puts("Ranked in decending sort:");	//½µÐòÅÅÁÐ 
+	for(i = 0 ; i < 10 ; ++i)
+		printf("%s\t", wdlst[i]);
 }
 
 int main()
@@ -69,6 +96,8 @@ int main()
 	
 	printf("strcmp(a,b) = %d" , str_cmp(a , b));
 	system(pause);*/
+	
+	word_sort();
 	
 	return 0;
 }

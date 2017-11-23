@@ -35,18 +35,40 @@ int str_len(const char b[])
 	return len;
 }
 
+int str_cmp(const char s1[] , const char s2[])
+{
+	int i;
+	while(s1[i] && s2[i])
+	{
+		if(s1[i] == s2[i])
+			i++ ;
+		else
+			return s1[i] - s2[i];
+	}
+}
+
 int main()
 {
 	/*
 	//—°‘Ò≈≈–Ú 
 	select_sort();
 	system("pause");
-	*/
+	
 	//strlen()
 	char a[100];
 	puts("Input a string and I will tell you its length.");
 	scanf("%s" , a);
-	printf("Its length is %d." , str_len(a));
+	printf("strlen() = %d." , str_len(a));
+	system("pause");
+	
+	//strcmp()
+	char , b[100];
+	puts("Input 2 strings and I will compare them.");
+	scanf("%s" , a);
+	scanf("%s" , b);
+	
+	printf("strcmp(a,b) = %d" , str_cmp(a , b));
+	system(pause);*/
 	
 	return 0;
 }

@@ -35,7 +35,6 @@ int str_len(const char b[])
 	return len;
 }
 
-//MODIFY NEEDED!!!!! 
 int str_cmp(const char s1[] , const char s2[])
 {
 	int i;
@@ -74,6 +73,40 @@ void word_sort()
 		printf("%s\t", wdlst[i]);
 }
 
+void letter_stat(const char s[])
+{
+	int sta[26] = {}, i = 0 , j;
+	char tmp[100];
+	while(s[i])
+	{
+		tmp[i] = s[i];
+		++i;
+	}
+	tmp[i] = '\0';
+	i = 0;
+	
+	while(tmp[i])
+	{
+		if(tmp[i] < 97)
+			tmp[i] += 32;	//lowering
+		if(tmp[i] >= 97 && tmp[i] <= 122)
+			sta[tmp[i]-97] += 1;
+		++i;
+	}
+	
+	puts("Here is the static data:");
+	for(i = 0 ; i < 26 ; ++i)
+	{
+		printf("%c : ", 97 + i);
+		if(sta[i])
+		{
+			for(j = 0 ; j < sta[i] ; ++j)
+				printf("*");
+		}
+		printf("\n");
+	}
+}
+
 int main()
 {
 	/*
@@ -84,20 +117,27 @@ int main()
 	//strlen()
 	char a[100];
 	puts("Input a string and I will tell you its length.");
-	scanf("%s" , a);
+	gets(a);
 	printf("strlen() = %d." , str_len(a));
 	system("pause");
 	
 	//strcmp()
 	char , b[100];
 	puts("Input 2 strings and I will compare them.");
-	scanf("%s" , a);
-	scanf("%s" , b);
+	gets(a);
+	gets(b);
 	
 	printf("strcmp(a,b) = %d" , str_cmp(a , b));
-	system(pause);*/
+	system("pause");
 	
 	word_sort();
+	system("pause")
+	
+	//letter static
+	gets(a);
+	printf("%s\n",s);
+	letter_stat(s);
+	system("pause");*/
 	
 	return 0;
 }

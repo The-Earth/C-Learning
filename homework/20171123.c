@@ -154,6 +154,36 @@ void saddle_point()
 		puts("数组中无鞍点");
 }
 
+void diag_sum()
+{
+	int i , j , a[5][5];
+	for(i = 0 ; i < 5 ; ++i)
+	{
+		for(j = 0 ; j < 5 ; ++j)
+		{
+			printf("请输入第%d行第%d列的元素：",i+1 , j+1);
+			scanf("%d",&a[i][j]);
+		}
+	}
+	puts("您输入的矩阵为：");
+	for(i = 0 ; i < 5 ; ++i)
+	{
+		for(j = 0 ; j < 5 ; ++j)
+		{
+			printf("%d\t",a[i][j]);
+		}
+		printf("\n");
+	}
+	
+	int sum1=0 , sum2=0;
+	for(i = 0 ; i < 5 ; ++i)
+	{
+		sum1 += a[i][i];
+		sum2 += a[i][4-i];
+	}
+	printf("\n主对角线之和为%d，副对角线之和为%d", sum1 , sum2);
+}
+
 int main()
 {
 	srand((unsigned)time(NULL));
@@ -193,7 +223,7 @@ int main()
 	system("pause");*/
 	
 	//对角线之和
-	 
+	diag_sum();
 	
 	return 0;
 }

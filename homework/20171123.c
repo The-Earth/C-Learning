@@ -165,7 +165,7 @@ void diag_sum()
 			scanf("%d",&a[i][j]);
 		}
 	}
-	puts("您输入的矩阵为：");
+	puts("\n您输入的矩阵为：");
 	for(i = 0 ; i < 5 ; ++i)
 	{
 		for(j = 0 ; j < 5 ; ++j)
@@ -184,10 +184,25 @@ void diag_sum()
 	printf("\n主对角线之和为%d，副对角线之和为%d", sum1 , sum2);
 }
 
+void skim(const char a[])
+{
+	int ori_len = str_len(a) , skimed_len=0 , i;
+	for(i = 0 ; i < ori_len ; ++i)
+	{
+		if(a[i] == ' ' && a[i+1] == ' ')
+		{
+			i++;
+		}
+		skimed_len++ ;
+	}
+	
+	printf("原长度为%d，删去多余空格后长度为%d。", ori_len , skimed_len);
+}
+
 int main()
 {
 	srand((unsigned)time(NULL));
-	/* 
+
 	//selective sort
 	select_sort();
 	system("pause");
@@ -200,7 +215,7 @@ int main()
 	system("pause");
 	
 	//strcmp()
-	char , b[100];
+	char b[100];
 	puts("Input 2 strings and I will compare them.");
 	gets(a);
 	gets(b);
@@ -220,10 +235,14 @@ int main()
 	
 	//Saddle point
 	saddle_point();
-	system("pause");*/
+	system("pause");
 	
 	//对角线之和
 	diag_sum();
+	system("pause")
+	
+	gets(a);
+	skim(a);
 	
 	return 0;
 }

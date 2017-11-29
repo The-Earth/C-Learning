@@ -1,6 +1,14 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
+#include <string.h>
+
+int randf(double min, double max)	//随机数生成器 
+{
+	double r;
+	r = rand();
+	return (int)(r / RAND_MAX * (max - min) + min);
+}
 
 void select_sort()
 {
@@ -65,7 +73,9 @@ void word_sort()
 		for(j = i ; j < 10 ; ++j)
 			max_index = strcmp(wdlst[max_index] , wdlst[j]) < 0 ? j : max_index ;
 		
-		strcpy(tmp , wdlst[i]) ; strcpy(wdlst[i] , wdlst[max_index]) ; strcpy(wdlst[max_index] , tmp) ;
+		strcpy(tmp , wdlst[i]) ;
+		strcpy(wdlst[i] , wdlst[max_index]) ;
+		strcpy(wdlst[max_index] , tmp) ;
 	}
 	
 	puts("Ranked in decending sort:");	//降序排列 
@@ -107,10 +117,48 @@ void letter_stat(const char s[])
 	}
 }
 
+void saddle_point()
+{
+	int i , j , k , l=0 , arr[5][5];
+	puts("生成的随机数组为：");
+	for(i = 0 ; i < 5 ; ++i)	//生成随机数组 
+	{
+		for(j = 0 ; j < 5 ; ++j)
+		{
+			arr[i][j] = randf(0.0 , 10.0);
+			printf("%d\t", arr[i][j]);
+		}
+		printf("\n");
+	}
+	
+	for(i = 0 ; i < 5 ; ++i)
+	{
+		for(j = 0 ; j < 5 ; ++j)
+		{
+			int saddle = 1;
+			for(k = 0 ; k < 5 ; ++k)
+			{
+				if(arr[i][j] < arr[i][k])
+					saddle = 0;
+				if(arr[i][j] > arr[k][j])
+					saddle = 0;
+			}
+			if(saddle == 1)
+			{
+				printf("第%d行，第%d列的%d是鞍点\n",i+1 ,j+1 , arr[i][j]);
+				l = 1;
+			}
+		}
+	}
+	if(! l)
+		puts("数组中无鞍点");
+}
+
 int main()
 {
-	/*
-	//选择排序 
+	srand((unsigned)time(NULL));
+	/* 
+	//selective sort
 	select_sort();
 	system("pause");
 	
@@ -130,14 +178,22 @@ int main()
 	printf("strcmp(a,b) = %d" , str_cmp(a , b));
 	system("pause");
 	
+	//word sort
 	word_sort();
-	system("pause")
+	system("pause");
 	
 	//letter static
 	gets(a);
 	printf("%s\n",s);
 	letter_stat(s);
+	system("pause");
+	
+	//Saddle point
+	saddle_point();
 	system("pause");*/
+	
+	//对角线之和
+	 
 	
 	return 0;
 }

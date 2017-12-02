@@ -53,7 +53,7 @@ struct student	//学生信息
 	double mark;
 };
 
-void mark_sort()
+void mark_sort()	//成绩排名 
 {
 	struct student stulist[10] , tmp;
 	puts("对10名学生的成绩进行排序");
@@ -69,7 +69,7 @@ void mark_sort()
 		{
 			if(stulist[j].mark > stulist[j - 1].mark)
 			{
-				tmp = stulist[j] ; stulist[j] = stulist[i] ; stulist[i] = tmp ;
+				tmp = stulist[j] ; stulist[j] = stulist[j-1] ; stulist[j-1] = tmp ;
 			}
 		}
 	}
@@ -78,13 +78,13 @@ void mark_sort()
 		printf("%s\t%.1f\n", stulist[i].name , stulist[i].mark);
 }
 
-struct array
+struct array	//索引固定的数组 
 {
 	int index;
 	int value;
 };
 
-void div_find()	//二分法查找 
+void div_find()	//二分法查找主函数 
 { 
 	struct array arr[1000] , tmp;
 	puts("生成的随机数组为：\n序号\t数值");
@@ -123,7 +123,7 @@ void div_find()	//二分法查找
 		printf("未查找到目标。");
 }
 
-int div_find_core(int arr[] , int tar , int len)
+int div_find_core(int arr[] , int tar , int len)	//二分法查找函数 
 {
 	int max = len - 1 , min = 0;
 	int mid ;
@@ -153,12 +153,12 @@ struct loc	//坐标
 	double y;
 };
 
-double dist(struct loc z1 , struct loc z2)
+double dist(struct loc z1 , struct loc z2)	//坐标距离计算 
 {
 	return (sqrt(pow(z1.x - z2.x, 2) + pow(z1.y - z2.y , 2)));
 }
 
-void dist_main()
+void dist_main()	//坐标距离计算主函数 
 {
 	struct loc z1 , z2 ;
 	puts("输入两点坐标，计算距离：\n第一点坐标（X Y 以空格分隔）：");
@@ -168,13 +168,13 @@ void dist_main()
 	printf("它们之间的距离为：%.3f" , dist(z1 , z2));
 }
 
-struct complex
+struct complex	//复数 
 {
 	double x;
 	double y;
 };
 
-void mul_cplx_main()
+void mul_cplx_main()	//复数成绩主函数 
 {
 	struct complex z1 , z2;
 	puts("输入两个复数，计算乘积：\n第个复数 X+iY（X Y 以空格分隔）：");
@@ -184,7 +184,7 @@ void mul_cplx_main()
 	printf("它们乘积为：%.3f+%.3f i" , mul_cplx(z1 , z2).x , mul_cplx(z1 , z2).y);
 }
 
-struct complex mul_cplx(struct complex z1 , struct complex z2)
+struct complex mul_cplx(struct complex z1 , struct complex z2)	//计算复数乘积 
 {
 	struct complex res;
 	res.x = z1.x * z2.x - z1.y * z2.y ;
@@ -195,23 +195,35 @@ struct complex mul_cplx(struct complex z1 , struct complex z2)
 int main()
 {
 	srand((unsigned)time(NULL));
-	/*
-	//单词冒泡 
+	
+	//单词冒泡
+	puts("======== 单词冒泡排序问题 ========");
 	word_sort();
+	puts("\n======== 结束 ========\n");
 	system("pause");
 	
+	//成绩排名
+	puts("======== 成绩排名问题 ========");
 	mark_sort();
+	puts("\n======== 结束 ========\n");
 	system("pause");
 	
+	//二分法查找 
+	puts("======== 二分法查找问题 ========"); 
 	div_find();
+	puts("\n======== 结束 ========\n");
 	system("pause");
 	
 	//P178 2
+	puts("======== P178 2 ========");
 	dist_main();
-	system("pause");*/
+	puts("\n======== 结束 ========\n");
+	system("pause");
 	
 	//P178 3
+	puts("======== P178 3 ========");
 	mul_cplx_main();
+	puts("\n======== 结束 ========\n");
 	
 	return 0;
 }

@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <math.h>
 
 #define WORD_MAX 33
 
@@ -11,6 +12,8 @@ void div_find();
 int randf(double min , double max);
 int div_find_core(int arr[] , int tar , int len);
 struct array;
+struct loc;
+double dist(struct loc z1 , struct loc z2);
 
 void word_sort()	//排列单词 
 {
@@ -139,6 +142,27 @@ int randf(double min, double max)	//随机数生成器
 	return (int)(r / RAND_MAX * (max - min) + min);
 }
 
+struct loc	//坐标
+{
+	double x;
+	double y;
+};
+
+double dist(struct loc z1 , struct loc z2)
+{
+	return (sqrt(pow(z1.x - z2.x, 2) + pow(z1.y - z2.y , 2)));
+}
+
+void dist_main()
+{
+	struct loc z1 , z2 ;
+	puts("输入两点坐标，计算距离：\n第一点坐标（X Y 以空格分隔）：");
+	scanf("%lf %lf" , &z1.x , &z1.y);
+	puts("第二点坐标（X Y 以空格分隔）：");
+	scanf("%lf %lf" , &z2.x , &z2.y);
+	printf("它们之间的距离为：%.3f" , dist(z1 , z2));
+}
+
 int main()
 {
 	srand((unsigned)time(NULL));
@@ -148,9 +172,14 @@ int main()
 	system("pause");
 	
 	mark_sort();
-	system("pause");*/
+	system("pause");
 	
 	div_find();
+	system("pause");
+	
+	//坐标距离
+	dist_main();
+	system("pause");*/
 	
 	return 0;
 }

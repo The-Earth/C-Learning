@@ -55,7 +55,7 @@ double SIN_main(double d, int n, double pi)	//sin积分主程序
 	return res;
 }
 
-void yanghui(n)			//杨辉三角形 
+void yanghui(int n)			//杨辉三角形 
 {
 	int arr[n][n] , i , j;
 	for(i = 0 ; i < n ; ++i)

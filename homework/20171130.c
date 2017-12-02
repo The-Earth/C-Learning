@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <math.h>
+#include <time.h>
 
 #define WORD_MAX 33
 
@@ -14,6 +15,10 @@ int div_find_core(int arr[] , int tar , int len);
 struct array;
 struct loc;
 double dist(struct loc z1 , struct loc z2);
+void dist_main();
+void mul_cplx_main();
+struct complex;
+struct complex mul_cplx(struct complex z1 , struct complex z2);
 
 void word_sort()	//排列单词 
 {
@@ -163,6 +168,30 @@ void dist_main()
 	printf("它们之间的距离为：%.3f" , dist(z1 , z2));
 }
 
+struct complex
+{
+	double x;
+	double y;
+};
+
+void mul_cplx_main()
+{
+	struct complex z1 , z2;
+	puts("输入两个复数，计算乘积：\n第个复数 X+iY（X Y 以空格分隔）：");
+	scanf("%lf %lf" , &z1.x , &z1.y);
+	puts("第二个复数 X+iY（X Y 以空格分隔）：");
+	scanf("%lf %lf" , &z2.x , &z2.y);
+	printf("它们乘积为：%.3f+%.3f i" , mul_cplx(z1 , z2).x , mul_cplx(z1 , z2).y);
+}
+
+struct complex mul_cplx(struct complex z1 , struct complex z2)
+{
+	struct complex res;
+	res.x = z1.x * z2.x - z1.y * z2.y ;
+	res.y = z1.y * z2.x + z1.x * z2.y ;
+	return res; 
+} 
+
 int main()
 {
 	srand((unsigned)time(NULL));
@@ -177,9 +206,12 @@ int main()
 	div_find();
 	system("pause");
 	
-	//坐标距离
+	//P178 2
 	dist_main();
 	system("pause");*/
+	
+	//P178 3
+	mul_cplx_main();
 	
 	return 0;
 }

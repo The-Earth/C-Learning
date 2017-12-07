@@ -1,5 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <math.h>
+#define EPS 0.001
 
 void _10_1_1()
 {
@@ -28,11 +30,34 @@ void _10_1_3()
 	printf("++*p = %d\n" , ++*p);		//输出++a[2]的值 
 }
 
+double _10_2_3_fun(double x)
+{
+	return x*x;
+}
+
+double _10_2_3_integral(int a , int b , double (*f)(double))
+{
+	double sum = 0.0 , x ;
+	for(x = a ; x < b ; x = x + EPS)
+		sum += EPS * (*f)(x);
+	return sum;
+}
+
+void _10_2_3()
+{
+	printf("f(x) = x*x 在[0,1]上的定积分：%f\n" , _10_2_3_integral(0 , 1, _10_2_3_fun));
+	printf("f(x) = sin(x) 在[0,1]上的定积分：%f\n" , _10_2_3_integral(0 , 1, sin));
+	printf("f(x) = sqrt(x) 在[0,1]上的定积分：%f\n" , _10_2_3_integral(0 , 1, sqrt));
+}
+
 int main()
 {
 	_10_1_1();
 	puts("\n");
 	_10_1_3();
+	puts("\n");
+	_10_2_3();
+	
 	
 	return 0;
 }

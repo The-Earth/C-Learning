@@ -3,6 +3,11 @@
 #include <math.h>
 #define EPS 0.001
 
+double randf(double min , double max)
+{
+	return (double) rand() / RAND_MAX * (max - min) + min;
+}
+
 void _10_1_1()
 {
 	int a , b[4];
@@ -50,14 +55,41 @@ void _10_2_3()
 	printf("f(x) = sqrt(x) 在[0,1]上的定积分：%f\n" , _10_2_3_integral(0 , 1, sqrt));
 }
 
+void _10_3_2()
+{
+	int a[5] , i , *p;
+	printf("用下标引用数组元素：\n");
+	for(i = 0 ; i < 5 ; i++)
+		a[i] = (int)randf(1,10);
+	for(i = 0 ; i < 5 ; i++)
+		printf("%d\t", a[i]);
+	printf("\n");
+	
+	printf("用数组名引用数组元素：\n");
+	for(i = 0 ; i < 5 ; i++)
+		*(a+i) = (int)randf(1,10);
+	for(i = 0 ; i < 5 ; i++)
+		printf("%d\t", a[i]);
+	printf("\n");
+	
+	printf("用指针引用数组元素：\n");
+	for(p = a ; p < a + 5 ; p++)
+		*p = (int)randf(1,10);
+	for(i = 0 ; i < 5 ; i++)
+		printf("%d\t", a[i]);
+	printf("\n");
+}
+
 int main()
 {
+	srand((unsigned)time(NULL));
 	_10_1_1();
 	puts("\n");
 	_10_1_3();
 	puts("\n");
 	_10_2_3();
-	
+	puts("\n");
+	_10_3_2();
 	
 	return 0;
 }

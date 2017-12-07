@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
+#include <string.h>
 #define EPS 0.001
 
 double randf(double min , double max)
@@ -99,6 +100,31 @@ void _10_3_4_list(int *a , int n)
 		t = a[i] , a[i] = a[n-1-i] , a[n-1-i] = t ;
 }
 
+void _10_3_8()
+{
+	char name[][10] = {"zhang san" , "li si" , "wang wu" , "zhao liu"};
+	int i , j;
+	char t[10];
+	printf("≈≈–Ú«∞£∫\n");
+	for(i = 0 ; i < 4 ; i++)
+		printf("name[%d] = %s\n" , i , name[i]);
+	for(i = 0 ; i < 4 ; i++)
+	{
+		for(j = 0 ; j < 4 - i - 1 ; j++)
+		{
+			if(strcmp(name[j] , name[j+1]) > 0)
+			{
+				strcpy(t , name[j]);
+				strcpy(name[j] , name[j+1]);
+				strcpy(name[j+1] , t);
+			}
+		}
+		printf("≈≈–Ú∫Û£∫\n");
+		for(i = 0 ; i < 4 ; i++)
+			printf("name[%d] = %s\n",i , name[i]);
+	}
+}
+
 int main()
 {
 	srand((unsigned)time(NULL));
@@ -112,6 +138,7 @@ int main()
 	puts("\n");
 	_10_3_4();
 	puts("\n");
+	_10_3_8();
 	
 	return 0;
 }

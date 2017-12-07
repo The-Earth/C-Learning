@@ -80,6 +80,25 @@ void _10_3_2()
 	printf("\n");
 }
 
+void _10_3_4()
+{
+	int score[5] = {60 , 80 , 90 , 70 , 50} , i , *p = score;
+	printf("Scores:\n");
+	for(i = 0 ; i < 5 ; i++)
+		printf("%d\t" , *(p+i));	//输出原数组 
+	printf("\n");
+	_10_3_4_list(p,5);				//调用倒序函数
+	for(i = 0 ; i < 5 ; i++)		//输出倒序后数组 
+		printf("%d\t" , *(p+i));
+}
+
+void _10_3_4_list(int *a , int n)
+{
+	int i , t;
+	for(i = 0 ; i < n / 2 ; i++)
+		t = a[i] , a[i] = a[n-1-i] , a[n-1-i] = t ;
+}
+
 int main()
 {
 	srand((unsigned)time(NULL));
@@ -90,6 +109,9 @@ int main()
 	_10_2_3();
 	puts("\n");
 	_10_3_2();
+	puts("\n");
+	_10_3_4();
+	puts("\n");
 	
 	return 0;
 }

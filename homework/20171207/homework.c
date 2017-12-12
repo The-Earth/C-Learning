@@ -17,7 +17,7 @@ void str_cpy(char src[] , char *p)
 		*(p+i)= src[i++];
 }
 
-double arr_average(double *arr , int len)
+double arr_average(int *arr , int len)
 {
 	double sum = 0;
 	for(int i = 0 ; i < len ; ++i)
@@ -60,28 +60,36 @@ void output(int *data , int size)
 int main()
 {
 	//P205 2
+	puts("========== P205 2 start ========="); 
 	double Rad , C , Area;
+	puts("输入圆半径，计算周长与面积：");
 	scanf("%lf",&Rad);
 	Circle(Rad, &C , &Area);
-	printf("\n%f\n%f" , C , Area);
+	printf("\n周长为 %f\n面积为 %f" , C , Area);
 	puts("\n========");
 	system("pause");
 	
 	//P205 4
-	char src[32]="abcdefg" , dest[32];
+	puts("========== P205 4 start =========");
+	char src[32] , dest[32];
 	char *p = dest;
+	puts("字符串测试：输入一个字符串 a");
+	scanf("%s" , &src);
 	str_cpy(src , p);
-	printf("%s" , dest);
+	printf("复制到字符串b，b=%s" , dest);
 	puts("\n========");
 	system("pause");
 	
 	//P205 5
-	double srcarr[5] = {2,4,3,2,1};
-	printf("%f",arr_average(srcarr , 5));
+	puts("========== P205 5 start =========");
+	int srcarr[5];
+	input(srcarr , 5);
+	printf("其平均值为 ： %f",arr_average(srcarr , 5));
 	puts("\n========");
 	system("pause");
 	
 	//排序
+	puts("========== 三个函数排序问题 start =========");
 	int data[6];
 	input(data , 6);
 	sort(data , 6);

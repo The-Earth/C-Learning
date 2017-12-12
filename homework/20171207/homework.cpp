@@ -9,9 +9,11 @@ void Circle(double R , double *C , double *Area)
 	*Area = PI * R * R;
 }
 
-void strcpy(char src[] , char *dest[])
+void str_cpy(char src[] , char *p)
 {
-	*dest[] = src[];
+	int i = 0;
+	while(src[i])
+		*(p+i)= src[i++];
 }
 
 int main()
@@ -21,10 +23,13 @@ int main()
 	scanf("%lf",&Rad);
 	Circle(Rad, &C , &Area);
 	printf("\n%f\n%f" , C , Area);
-	puts("========");
+	puts("\n========");
 	
 	//P205 4
-	char
+	char src[32]="abcdefg" , dest[32];
+	char *p = dest;
+	str_cpy(src , p);
+	printf("%s" , dest);
 	
 	return 0;
 }

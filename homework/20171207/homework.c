@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include <math.h>
 
 #define PI 3.1415926
@@ -26,6 +27,36 @@ double arr_average(double *arr , int len)
 	return sum / len;
 }
 
+void input(int *data , int size)
+{
+	printf("请依次输入%d个数据\n", size);
+	for(int i = 0 ; i < size ; ++i)
+		scanf("%d" , data + i);
+	puts("输入完成"); 
+}
+
+void sort(int *data, int size)
+{
+	for(int i = 0 ; i < size ; ++i)
+	{
+		for(int j = size-1 ; j > i ; --j)
+		{
+			if( *(data + j) > *(data + j - 1) )
+			{
+				int tmp;
+				tmp = *(data + j) ; *(data + j) = *(data + j - 1) ; *(data + j - 1) = tmp;
+			} 
+		}
+	}
+} 
+
+void output(int *data , int size)
+{
+	puts("排序结果为：");
+	for(int i = 0 ; i < size ; ++i)
+		printf("%d\t" , *(data + i));
+}
+
 int main()
 {
 	//P205 2
@@ -50,6 +81,11 @@ int main()
 	puts("\n========");
 	system("pause");
 	
+	//排序
+	int data[6];
+	input(data , 6);
+	sort(data , 6);
+	output(data , 6);
 	
 	return 0;
 }

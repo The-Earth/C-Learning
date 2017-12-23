@@ -103,14 +103,48 @@ void show_src_main()
 	fclose(fp);
 }
 
+int is_complete(int n)
+{
+	int sum = 0;
+	for(int i = 1 ; i < n ; ++i)
+	{
+		if(n % i == 0)
+			sum += i;
+	}
+	
+	if(sum == n)
+		return 1;
+	else
+		return 0;
+}
+
+void complete_output()
+{
+	FILE *fp;
+	fp = fopen("file1.txt" , "w");
+	fprintf(fp , "1000以内的完数为：\n");
+	fclose(fp);
+	
+	fp=fopen("file1.txt" , "a");
+	for(int i = 2 ; i <= 1000 ; ++i)
+	{
+		if(is_complete(i))
+			fprintf(fp , "%d\t" , i);
+	}
+	puts("完数结果已保存在file1.txt");
+	fclose(fp);
+}
+
 int main()
 {
 	/*
 	student_sort_main();
 	system("pause");
 	lines_main();
-	*/
-	show_src_main();
+	system("pause"); 
+	show_src_main();*/
+	
+	complete_output();
 	
 	return 0;
 }

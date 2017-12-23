@@ -122,10 +122,7 @@ void complete_output()
 {
 	FILE *fp;
 	fp = fopen("file1.txt" , "w");
-	fprintf(fp , "1000以内的完数为：\n");
-	fclose(fp);
-	
-	fp=fopen("file1.txt" , "a");
+
 	for(int i = 2 ; i <= 1000 ; ++i)
 	{
 		if(is_complete(i))

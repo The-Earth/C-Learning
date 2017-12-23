@@ -132,6 +132,28 @@ void complete_output()
 	fclose(fp);
 }
 
+void complete_read()
+{
+	FILE *fp;
+	char txt[32];
+	fp = fopen("file1.txt", "r");
+	fgets(txt , 32 , fp);
+	printf("file1.txt的内容如下：\n%s\n" , txt);
+	
+	rewind(fp);
+	int tmp , i = 0;
+	double sum = 0.0;
+	while(fscanf(fp , "%d" , &tmp) == 1)
+	{
+		sum += tmp;
+		i ++;
+	}
+	
+	printf("平均值为%f" , sum / i);
+	
+	fclose(fp);
+}
+
 int main()
 {
 	/*
@@ -139,9 +161,10 @@ int main()
 	system("pause");
 	lines_main();
 	system("pause"); 
-	show_src_main();*/
-	
+	show_src_main();
+	system("pause");*/
 	complete_output();
+	complete_read();
 	
 	return 0;
 }

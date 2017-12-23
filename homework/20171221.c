@@ -80,12 +80,37 @@ void lines_main()
 		puts("\a文件打开失败。\n");
 	else
 		printf("文件中共%d行" , lines_core(fp));
+	fclose(fp);
+}
+
+void show_src_main()
+{
+	FILE *fp;
+	char filedir[128] , ctl[128];
+	
+	puts("输入欲读取文件之路径：");
+	scanf("%s",filedir);
+	if((fp = fopen(filedir , "r")) == NULL)
+		puts("\a文件打开失败。\n");
+	else
+	{
+		int i=0;
+		while(fgets(ctl  , 128 , fp))
+		{
+			printf("%d | %s", ++i,ctl);
+		}
+	}
+	fclose(fp);
 }
 
 int main()
 {
-	//student_sort_main();
+	/*
+	student_sort_main();
+	system("pause");
 	lines_main();
+	*/
+	show_src_main();
 	
 	return 0;
 }

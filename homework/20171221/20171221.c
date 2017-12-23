@@ -190,13 +190,11 @@ void exmres()
 	}
 	puts("内容保存于file2.dat");
 	fclose(dat);
-	
-	
 }
 
 int main()
 {
-	/*
+	puts("========学生年龄排序问题========"); 
 	student_sort_main();
 	system("pause");
 	lines_main();
@@ -205,7 +203,8 @@ int main()
 	system("pause");
 	complete_output();
 	system("pause");
-	complete_read();*/
+	complete_read();
+	system("pause");
 	exmres();
 	
 	

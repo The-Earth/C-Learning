@@ -53,8 +53,39 @@ void student_sort_main()
 	free(data);
 }
 
+int lines_core(FILE *file)
+{
+	int i=0;
+	char c;
+	while(1)
+	{
+		c = fgetc(file);
+		if(c == EOF)
+			break;
+		if(c == 10)
+			i++;
+	}
+	
+	return i;
+}
+
+void lines_main()
+{
+	FILE *fp;
+	char filedir[128];
+	
+	puts("输入欲读取文件之路径：");
+	scanf("%s",filedir);
+	if((fp = fopen(filedir , "r")) == NULL)
+		puts("\a文件打开失败。\n");
+	else
+		printf("文件中共%d行" , lines_core(fp));
+}
+
 int main()
 {
-	student_sort_main();
+	//student_sort_main();
+	lines_main();
+	
 	return 0;
 }

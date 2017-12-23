@@ -6,9 +6,16 @@ typedef struct
 {
 	char name[32];
 	int age;
-} student;
+} student_1;
 
-void age_sort_core(student *p , int len)
+typedef struct
+{
+	char name[32];
+	char id[32];
+	int mark;
+} student_2;
+
+void age_sort_core(student_1 *p , int len)
 {
 	for(int i = 0 ; i < len ; ++i)
 	{
@@ -16,7 +23,7 @@ void age_sort_core(student *p , int len)
 		{
 			if((*(p + j)).age > (*(p + j - 1)).age)
 			{
-				student tmp;
+				student_1 tmp;
 				tmp = *(p + j) ; *(p + j) = *(p + j - 1) ; *(p + j - 1) = tmp ; 
 			}
 		}
@@ -25,13 +32,13 @@ void age_sort_core(student *p , int len)
 
 void student_sort_main()
 {
-	student *data , *data_copy;
+	student_1 *data , *data_copy;
 	int data_len;
 	//input_start
 	puts("输入学生数：");
 	scanf("%d", &data_len);
 	
-	data = (student*)malloc(data_len*sizeof(student));
+	data = (student_1*)malloc(data_len*sizeof(student_1));
 	data_copy = data;
 	
 	for(int i = 0 ; i < data_len ; ++i)
@@ -154,6 +161,39 @@ void complete_read()
 	fclose(fp);
 }
 
+void exmres()
+{
+	student_2 *data , *data_copy;
+	int data_len;
+	//input_start
+	puts("输入学生数：");
+	scanf("%d", &data_len);
+	
+	data = (student_2*)malloc(data_len*sizeof(student_2));
+	data_copy = data;
+	
+	for(int i = 0 ; i < data_len ; ++i)
+	{
+	 	printf("依输入第%d个学生的姓名、学号、成绩，空格分隔，姓名只接受ASCII：", i+1);
+	 	scanf("%s %s %d" , &((*(data+i)).name) , &((*(data+i)).id) , &((*(data+i)).mark));
+	}
+	
+	data = data_copy;
+	
+	FILE *dat;
+	if((dat = fopen("file2.dat" , "wb"))== NULL)
+		puts("打开文件失败");
+	else
+	{
+		for(int i ; i < data_len ; ++i)
+			fwrite(data+i , sizeof(student_2) , 1 , dat);
+	}
+	puts("内容保存于file2.dat");
+	fclose(dat);
+	
+	
+}
+
 int main()
 {
 	/*
@@ -162,9 +202,12 @@ int main()
 	lines_main();
 	system("pause"); 
 	show_src_main();
-	system("pause");*/
+	system("pause");
 	complete_output();
-	complete_read();
+	system("pause");
+	complete_read();*/
+	exmres();
+	
 	
 	return 0;
 }

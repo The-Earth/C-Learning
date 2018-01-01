@@ -101,44 +101,41 @@ void free_memory(STUDENT *p)
 
 void stu_info()
 {
-	func:puts("选择：\n1: 初始化链表\n2：输入数据\n3：显示所有数据\n4：按姓名查找\n5：按成绩查找\n6：删除指定学生\n7：退出");
+	STUDENT *head = init();
+	STUDENT *p = head;
+	
+	func:puts("选择：\n1：输入数据\n2：显示所有数据\n3：按姓名查找\n4：按成绩查找\n5：删除指定学生\n6：退出");
 	int opt , exit = 0;
 	char namekey[32];
 	int markkey;
 	
-	STUDENT *head = NULL;
-	STUDENT *p = NULL;
 	scanf("%d", &opt);
 	switch(opt)
 	{
 		case 1:
-			head = init();
-			p = head;
-			break;
-		case 2:
 			input(p);
 			p = head;
 			break;
-		case 3:
+		case 2:
 			show(p);
 			p = head;
 			break;
-		case 4:
+		case 3:
 			puts("输入要查找的姓名："); 
 			scanf("%s", namekey);
 			search_name(p , namekey);
 			p = head;
 			break;
-		case 5:
+		case 4:
 			
 			puts("输入要查找的分数："); 
 			scanf("%d", &markkey);
 			search_mark(p , markkey);
 			p = head;
 			break;
-		case 6:
+		case 5:
 			
-		case 7:
+		case 6:
 			exit = 1;
 	}
 	if(exit == 0)

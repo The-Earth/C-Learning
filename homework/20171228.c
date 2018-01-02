@@ -55,40 +55,50 @@ void show(STUDENT *p)
 		show(p->next);
 }
 
-int search_name(STUDENT *head, char key[32])
+void search_name(STUDENT *head, char key[32])
 { 
 	if(strcmp(key, head->name) == 0)
-		{
 		printf("%s的成绩为：%d", head->name, head->mark);
-		return 1;
-		}
 	else
 	{
 		if(!(head->next))
-		{
 			puts("未找到");
-			return 0;
-		}
 		else
 			search_name(head->next, key);
 	}
 }
 
-int search_mark(STUDENT *head, int key)
+void search_mark(STUDENT *head, int key)
 {
-	printf("成绩为%d的学生有：", key);
 	if(key == head->mark)
-		printf("%s", head->name);
+		printf("成绩为%d的学生有：%s\n", key , head->name);
 	else
 	{
 		if(head->next == NULL)
-		{
 			puts("未找到");
-			return 0;
-		}
 		else
 			search_mark(head->next, key);
 	}
+}
+
+void del(STUDENT *pre, STUDENT *p, STUDENT **head, char key[32])
+{
+	if(strcmp(key, p->name) == 0)
+	{
+		if(pre == NULL)
+		{
+			STUDENT *nxt = p->next, *head_c = *head;
+			*head = nxt;
+			free(head_c);
+		}
+		else
+		{
+			pre->next = p->next;
+			free(p);
+		}
+	}
+	else
+		del(p, p->next, head, key);
 }
 
 void free_memory(STUDENT *p)
@@ -102,10 +112,11 @@ void free_memory(STUDENT *p)
 void stu_info()
 {
 	STUDENT *head = init();
-	STUDENT *p = head;
+	STUDENT *tail = head;
 	
-	func:puts("选择：\n1：输入数据\n2：显示所有数据\n3：按姓名查找\n4：按成绩查找\n5：删除指定学生\n6：退出");
+	func:puts("\n选择：\n1：输入数据\n2：显示所有数据\n3：按姓名查找\n4：按成绩查找\n5：删除指定学生\n6：退出");
 	int opt , exit = 0;
+	STUDENT *p = head;
 	char namekey[32];
 	int markkey;
 	
@@ -113,28 +124,26 @@ void stu_info()
 	switch(opt)
 	{
 		case 1:
-			input(p);
-			p = head;
+			input(tail);
 			break;
 		case 2:
 			show(p);
-			p = head;
 			break;
 		case 3:
 			puts("输入要查找的姓名："); 
 			scanf("%s", namekey);
 			search_name(p , namekey);
-			p = head;
 			break;
 		case 4:
-			
 			puts("输入要查找的分数："); 
 			scanf("%d", &markkey);
 			search_mark(p , markkey);
-			p = head;
 			break;
 		case 5:
-			
+			puts("输入要删除的学生姓名：");
+			scanf("%s", namekey);
+			del(NULL, p, &head, namekey);
+			break;	
 		case 6:
 			exit = 1;
 	}

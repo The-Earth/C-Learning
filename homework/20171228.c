@@ -10,6 +10,14 @@ struct student
 	STUDENT *next;
 };
 
+struct stu2
+{
+	char name[32];
+	int mk1;
+	int mk2;
+	int mk3;
+};
+
 STUDENT *init()
 {
 	STUDENT *head = (STUDENT*)malloc(sizeof(STUDENT));
@@ -107,7 +115,10 @@ void free_memory(STUDENT *p)
 	if(p->next == NULL)
 		free(p);
 	else
+	{
 		free_memory(p->next);
+		free(p);
+	}
 }
 
 void stu_info()
@@ -154,9 +165,15 @@ void stu_info()
 	free_memory(head);
 }
 
+stu_arrange()
+{
+	
+}
+
 int main()
 {
 	stu_info();
+	stu_arrange();
 	
 	return 0;
 }

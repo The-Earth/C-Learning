@@ -165,7 +165,7 @@ void stu_info()
 	free_memory(head);
 }
 
-stu_arrange()
+void stu_arrange()
 {
 	
 }

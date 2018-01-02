@@ -38,6 +38,7 @@ STUDENT *input_core(STUDENT *pre)
 
 void input(STUDENT *p)
 {
+	puts("--------\n输入其他学生信息："); 
 	while(1)	//input
 	{
 		STUDENT *pre = input_core(p);
@@ -127,20 +128,21 @@ void stu_info()
 			input(tail);
 			break;
 		case 2:
+			puts("\n姓名\t学号"); 
 			show(p);
 			break;
 		case 3:
-			puts("输入要查找的姓名："); 
+			puts("\n输入要查找的姓名："); 
 			scanf("%s", namekey);
 			search_name(p , namekey);
 			break;
 		case 4:
-			puts("输入要查找的分数："); 
+			puts("\n输入要查找的分数："); 
 			scanf("%d", &markkey);
 			search_mark(p , markkey);
 			break;
 		case 5:
-			puts("输入要删除的学生姓名：");
+			puts("\n输入要删除的学生姓名：");
 			scanf("%s", namekey);
 			del(NULL, p, &head, namekey);
 			break;	

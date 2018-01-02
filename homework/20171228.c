@@ -13,9 +13,7 @@ struct student
 struct stu2
 {
 	char name[32];
-	int mk1;
-	int mk2;
-	int mk3;
+	int mark; 
 };
 
 STUDENT *init()
@@ -165,9 +163,80 @@ void stu_info()
 	free_memory(head);
 }
 
+struct stu2 *output(struct stu2 *a, int n, struct stu2 *(*b)(struct stu2 *x, int m))
+{
+	struct stu2 *p;
+	p = b(a, n);
+
+	return p;
+}
+
+struct stu2 *sort_name(struct stu2 *a, int n)
+{
+	struct stu2 *p = a;
+	struct stu2 t;
+
+	for (int i = 0; i < n - 1; ++i)
+	{
+		for (int j = i + 1; j < n; ++j)
+		{
+			if (strcmp((*(p + i)).name, (*(p + j)).name) > 0)
+			{
+				t = *(p + i);
+				*(p + i) = *(p + j);
+				*(p + j) = t;
+			}
+		}
+	}
+
+	return a;
+}
+
+struct stu2 *sort_mark(struct stu2 *a, int n)
+{
+	struct stu2 *p = a;
+	struct stu2 t;
+
+	for (int i = 0; i < n - 1; ++i)
+	{
+		for (int j = i + 1; j < n; ++j)
+		{
+			if ((*(p + i)).mark > (*(p + j)).mark)
+			{
+				t = *(p + i);
+				*(p + i) = *(p + j);
+				*(p + j) = t;
+			}
+		}
+	}
+
+	return a;
+}
+
 void stu_arrange()
 {
-	
+	int a2;
+	puts("输入学生数：");
+	scanf("%d", &a2);
+	getchar();
+	struct stu2 *c2 = (struct stu2 *)calloc(a2, sizeof(struct stu2));
+	for (int i = 0; i < a2; ++i)
+	{
+		puts("输入姓名 成绩");
+		scanf("%s %d",c2[i].name, &c2[i].mark);
+	}
+
+	puts("姓名排序如下：");
+	for (int i = 0; i < a2; ++i)
+		printf("%s\t%d\n", output(c2, a2, *sort_name)[i].name, output(c2, a2, *sort_name)[i].mark);
+	printf("\n");
+
+	puts("成绩排序如下：");
+	for (int i = 0; i < a2; ++i)
+		printf("%s\t%d\n", output(c2, a2, *sort_mark)[i].name, output(c2, a2, *sort_mark)[i].mark);
+	puts("\n\n");
+
+	free(c2);
 }
 
 int main()
